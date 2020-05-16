@@ -20,16 +20,17 @@ class Chrome(object): # defint a object called chrome
             self.os = 'linux'
 
         options = Options()
-        if user_agetn==True:
+        if user_agent==True:
             ua = UserAgent()
             user_agent = ua.random
+            print(user_agent)
             options.add_argument(f'user-agent={user_agent}')
 
         try:
             if self.os == 'MAC OS X':
-                self.driver = webdriver.Chrome('./chromedriver', chrome_options=options)
+                self.driver = webdriver.Chrome('./chromedriver', options=options)
             elif self.os == 'windows':
-                self.driver = webdriver.Chrome('./chromedriver.exe', chrome_options=options)
+                self.driver = webdriver.Chrome('./chromedriver.exe', options=options)
         except Exception as e:
             print(e)
             os._exit(0)
@@ -57,10 +58,11 @@ class Chrome(object): # defint a object called chrome
         return
 
 
-a = Chrome()
+a = Chrome(user_agent=True)
 a.driver.get('https://health.businessweekly.com.tw/event/2020/pediatrics/search.html?keywords=張虔熙&zipcode=0&page=1') #進入投票網站
-vote_button = a.driver.find_element_by_xpath("//*[@id='search']/section[3]/div[1]/div[1]/div[2]/a/picture/img")
 time.sleep(8)
+vote_button = a.driver.find_element_by_xpath("//*[@id='search']/section[3]/div[1]/div[1]/div[2]/a/picture/img")
+time.sleep(5)
 vote_button.click()
 
 
