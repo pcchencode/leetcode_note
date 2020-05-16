@@ -53,22 +53,10 @@ class Chrome(object): # defint a object called chrome
 
 a = Chrome()
 a.driver.get('https://health.businessweekly.com.tw/event/2020/pediatrics/search.html?keywords=張虔熙&zipcode=0&page=1') #進入投票網站
-vote_button = a.driver.find_element_by_xpath("//[@id='search'][@src='dist/img/btn_vote_desktop.png']")
+vote_button = a.driver.find_element_by_xpath("//*[@id='search']/section[3]/div[1]/div[1]/div[2]/a/picture/img")
+time.sleep(8)
 vote_button.click()
 
 
-# //*[@id="search"]/section[3]/div[1]/div[1]/div[2]/a/picture/img
 
-#a.google_search('how do you turn this on')
-#print(a.name)
-# print(a.version)
-# a.open_website('https://www.instagram.com/nanaciaociao/?hl=zh-tw')
-
-
-# webdriver.Chrome('./chromedriver')
-# a = webdriver.Chrome('./chromedriver')
-# a.get('https://www.google.com/')
-# button = a.find_element_by_xpath("//input[@class='gLFyf gsfi']")
-# button.send_keys(123)
-# button.submit()
 
