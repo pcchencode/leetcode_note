@@ -3,14 +3,14 @@ import pandas as pd
 import random,time
 from selenium import webdriver  # 從library中引入webdriver
 # from selenium.webdriver.common.by import By
-# from fake_useragent import UserAgent # !pip install fake-useragent
+from fake_useragent import UserAgent # !pip install fake-useragent
 from selenium.webdriver.chrome.options import Options
 import urllib
 # import argparse
 # pd.set_option('display.max_rows', 250)
 
 class Chrome(object): # defint a object called chrome
-    def __init__(self, width=800, height=600):
+    def __init__(self, width=800, height=600, user_agent=False):
         platform = sys.platform
         if platform == 'darwin':
             self.os = 'MAC OS X'
@@ -19,11 +19,17 @@ class Chrome(object): # defint a object called chrome
         elif platform == 'linux':
             self.os = 'linux'
 
+        options = Options()
+        if user_agetn==True:
+            ua = UserAgent()
+            user_agent = ua.random
+            options.add_argument(f'user-agent={user_agent}')
+
         try:
             if self.os == 'MAC OS X':
-                self.driver = webdriver.Chrome('./chromedriver')
+                self.driver = webdriver.Chrome('./chromedriver', chrome_options=options)
             elif self.os == 'windows':
-                self.driver = webdriver.Chrome('./chromedriver.exe')
+                self.driver = webdriver.Chrome('./chromedriver.exe', chrome_options=options)
         except Exception as e:
             print(e)
             os._exit(0)
