@@ -63,11 +63,7 @@ class Chrome(object): # defint a object called chrome
         return
 
 a = Chrome(user_agent=True)
-a.driver.get('https://health.businessweekly.com.tw/event/2020/pediatrics/search.html?keywords=張虔熙&zipcode=0&page=1') #進入投票網站
-time.sleep(8)
-vote_button = a.driver.find_element_by_xpath("//*[@id='search']/section[3]/div[1]/div[1]/div[2]/a/picture/img")
-time.sleep(5)
-vote_button.click()
+
 
 a.close()
 
