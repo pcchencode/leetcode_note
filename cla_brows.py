@@ -62,10 +62,49 @@ class Chrome(object): # defint a object called chrome
 
         return
 
-a = Chrome(user_agent=True)
+def vote():
+    try:
+        browser = webdriver.Chrome('./chromedriver')
+        scroll_down="var q=document.documentElement.scrollTop=100"  
+        browser.execute_script(scroll_down)  
+        time.sleep(1)
+
+        browser.get('https://health.businessweekly.com.tw/event/2020/pediatrics/search.html?keywords=張虔熙')
+        time.sleep(random.randint(8,10))
+
+        vote_button = browser.find_element_by_xpath("//*[@id='search']/section[3]/div[1]/div[1]/div[2]/a/picture/img")
+        vote_button.click()
+        time.sleep(random.randint(5,10))
+        check_box_pro = browser.find_element_by_xpath('//*[@id="doctor-141d027a-a272-4361-b095-fa8b47c6b3cd"]/div[2]/div[1]/label')
+        time.sleep(random.randint(1,2))
+        check_box_pro.click()
+
+        submit_button = browser.find_element_by_xpath('//*[@id="doctor-141d027a-a272-4361-b095-fa8b47c6b3cd"]/div[3]/a[1]')
+        time.sleep(5)
+        submit_button.click()
+        time.sleep(5)
+
+        browser.quit()
+    except:
+        browser.quit()
+    return
+
+def loopvote(n):
+    while n>0:
+        print('remained '+str(n))
+        try:
+            vote()
+            n = n-1
+        except:
+            br
+            return loopvote(n)
+    time.sleep(5)
+        
+    return
+
+loopvote(500)
 
 
-a.close()
 
 
 
