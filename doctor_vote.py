@@ -98,7 +98,7 @@ def vote1():
         #time.sleep(random.randint(1,3))
 #         //*[@id="doctor-141d027a-a272-4361-b095-fa8b47c6b3cd"]/div[2]/div[1]/label
 #         //*[@id="doctor-141d027a-a272-4361-b095-fa8b47c6b3cd"]/div[2]/div[2]/label
-        time.sleep(random.randint(5,6))
+        time.sleep(random.randint(2,3))
         check_box_pro = browser.find_element_by_xpath('//*[@id="doctor-49ef4f5a-b2dd-43f7-9147-526ae7424cb8"]/div[2]/div[1]/label')
         time.sleep(1)
         check_box_pro.click()
@@ -155,7 +155,7 @@ def function():
 
 if __name__ == '__main__':
     jobs = []
-    for i in range(5): # 看要一次開幾個？5個
+    for i in range(30): # 看要一次開幾個？5個
         # p = mp.Process(target=loopvote)
         p = mp.Process(target=loopvote, args=(10000,))
         jobs.append(p)
