@@ -6,6 +6,7 @@ from selenium import webdriver  # 從library中引入webdriver
 from fake_useragent import UserAgent # !pip install fake-useragent
 from selenium.webdriver.chrome.options import Options
 import urllib
+import multiprocessing as mp
 # import argparse
 # pd.set_option('display.max_rows', 250)
 
@@ -71,5 +72,15 @@ def vote():
         
     return
 
-vote()
+def function():
+    for i in range(10):
+        print(i)
+
+if __name__ == '__main__':
+    jobs = []
+    for i in range(5):
+        p = mp.Process(target=vote)
+        jobs.append(p)
+        p.start()
+
 
