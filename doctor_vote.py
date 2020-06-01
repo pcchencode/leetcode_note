@@ -11,7 +11,7 @@ import multiprocessing as mp
 # pd.set_option('display.max_rows', 250)
 
 def vote():
-    ua = UserAgent()
+    ua = UserAgent(verify_ssl=False)
     user_agent = ua.random
     options = Options()
     options.add_argument("window-size=800,800")
@@ -73,7 +73,7 @@ def vote():
     return
 
 def vote1():
-    ua = UserAgent()
+    ua = UserAgent(verify_ssl=False)
     user_agent = ua.random
     options = Options()
     options.add_argument("window-size=800,800")
@@ -139,7 +139,7 @@ def loopvote(n):
     while n>0:
         print('remained '+str(n))
         try:
-            vote1()
+            vote()
             n = n-1
         except:
             time.sleep(5)
