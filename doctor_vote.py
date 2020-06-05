@@ -157,7 +157,7 @@ if __name__ == '__main__':
     jobs = []
     for i in range(10): # 看要一次開幾個？5個
         # p = mp.Process(target=loopvote)
-        p = mp.Process(target=loopvote, args=(50000,))
+        p = mp.Process(target=loopvote, args=(1,))
         jobs.append(p)
         p.start()
 
