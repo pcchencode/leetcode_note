@@ -9,8 +9,6 @@ def split_sum(num):
     return res
 
 def isHappy(n):
-    # split_sum(19)
-    # n = 2
     split_result = []
     while True:
         tmp = split_sum(n)
