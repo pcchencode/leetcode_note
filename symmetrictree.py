@@ -1,5 +1,8 @@
 import os
+import queue
 # https://ithelp.ithome.com.tw/articles/10213280
+
+
 
 
 def syn_lst(l):
