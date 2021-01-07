@@ -1,4 +1,6 @@
 import os
+# https://ithelp.ithome.com.tw/articles/10213280
+
 
 def syn_lst(l):
     if len(l)%2!=0:
