@@ -18,17 +18,26 @@ h.next.next.next.next = ListNode(5)
 node_val = []
 node_val.append(h.val)
 while h.next:
-	print(h.val)
-	node_val.append(h.next.val)
-	h = h.next
+    print(h.val)
+    node_val.append(h.next.val)
+    h = h.next
 node_val.reverse()
 print(node_val)
 
 
+r_v = ListNode(node_val[0])
+target = r_v
+i=1
+while i < len(node_val):
+    print(node_val[i])
+    target.next = ListNode(node_val[i])
 
-for i in range(0, len(node_val)):
-	
 
+    target = r_v.next
+    i = i+1
+print(r_v.val)
+print(r_v.next.val)
+print(r_v.next.next.val)
 
 
 os._exit(0)
