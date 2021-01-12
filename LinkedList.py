@@ -36,7 +36,7 @@ h.next.next.next.next = h.next
 
 addr_lst = []
 addr_lst.append(id(h))
-if h:
+if h: # 如果為空節點，就一定沒有cycle
     while h.next != None:
         # print(h)
         if id(h.next) not in addr_lst:
