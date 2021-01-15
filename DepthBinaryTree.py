@@ -29,12 +29,16 @@ def isleaf(r):
 def dfs_left(root):
     result = []
     stack = []
+    dep_lst = []
     depth = 1
     stack.append(root)
     while len(stack)>0:
         node = stack.pop()
         if not isleaf(node):
             depth += 1
+        else:
+            dep_lst.append(depth)
+            # depth -= 1
         
         if type(node) is TreeNode:
             result.append(node.val)
@@ -50,7 +54,7 @@ def dfs_left(root):
 
 
     print(result)
-    print(depth)
+    print(dep_lst)
     return result
 
 dfs_left(r)
