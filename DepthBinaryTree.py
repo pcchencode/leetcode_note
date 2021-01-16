@@ -1,5 +1,5 @@
 import os
-# import queue
+import queue
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -15,7 +15,24 @@ c2l = TreeNode(15)
 c2r = TreeNode(7)
 c1 = TreeNode(val=9, left=c1l, right=c1r)
 c2 = TreeNode(val=20, left=c2l, right=c2r)
+r = TreeNode(val=3, left=c1, right=c2)
+
+c1l = TreeNode(4)
+c1r = None
+c2l = None
+c2r = TreeNode(5)
+c1 = TreeNode(val=3, left=c1l, right=c1r)
+c2 = TreeNode(val=2, left=c2l, right=c2r)
 r = TreeNode(val=1, left=c1, right=c2)
+
+c1l = TreeNode(4)
+c1r = TreeNode(5)
+c2l = None
+c2r = None
+c1 = TreeNode(val=3, left=c1l, right=c1r)
+c2 = TreeNode(val=2, left=c2l, right=c2r)
+r = TreeNode(val=1, left=c1, right=c2)
+
 
 def isleaf(r):
     if r.left:
@@ -29,16 +46,17 @@ def isleaf(r):
 def dfs_left(root):
     result = []
     stack = []
-    dep_lst = []
     depth = 1
     stack.append(root)
     while len(stack)>0:
         node = stack.pop()
-        if not isleaf(node):
-            depth += 1
+        if node:
+            if isleaf(node):
+                return depth
+            else:
+                depth += 1
         else:
-            dep_lst.append(depth)
-            # depth -= 1
+            return 0
         
         if type(node) is TreeNode:
             result.append(node.val)
@@ -48,15 +66,12 @@ def dfs_left(root):
 
             if node.left != None:
                 stack.append(node.left)
-
         else:
             result.append(node)
+    return depth
 
 
-    print(result)
-    print(dep_lst)
-    return result
 
-dfs_left(r)
+
 
 
