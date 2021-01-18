@@ -15,7 +15,7 @@ c2l = TreeNode(15)
 c2r = TreeNode(7)
 c1 = TreeNode(val=9, left=c1l, right=c1r)
 c2 = TreeNode(val=20, left=c2l, right=c2r)
-r = TreeNode(val=3, left=c1, right=c2)
+r1 = TreeNode(val=3, left=c1, right=c2)
 
 c1l = TreeNode(4)
 c1r = None
@@ -23,7 +23,7 @@ c2l = None
 c2r = TreeNode(5)
 c1 = TreeNode(val=3, left=c1l, right=c1r)
 c2 = TreeNode(val=2, left=c2l, right=c2r)
-r = TreeNode(val=1, left=c1, right=c2)
+r2 = TreeNode(val=1, left=c1, right=c2)
 
 c1l = TreeNode(4)
 c1r = TreeNode(5)
@@ -31,7 +31,7 @@ c2l = None
 c2r = None
 c1 = TreeNode(val=3, left=c1l, right=c1r)
 c2 = TreeNode(val=2, left=c2l, right=c2r)
-r = TreeNode(val=1, left=c1, right=c2)
+r3 = TreeNode(val=1, left=c1, right=c2)
 
 
 def isleaf(r):
