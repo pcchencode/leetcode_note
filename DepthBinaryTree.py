@@ -91,12 +91,56 @@ def bfs_tra(root):
             result.append(node)
     return result
 
-print(bfs_tra(r1))
-print(bfs_tra(r2))
-print(bfs_tra(r3))
+def bfs_1leaf(root):
+    result = []
+    q = queue.Queue()
+    q.put(root)
+    while q.qsize()>0:
+        node = q.get()
+        if type(node) is TreeNode:
+            result.append(node.val)
+            if not isleaf(node):
+                if node.left != None:
+                    q.put(node.left)
+                else:
+                    q.put("NONE")
+                if node.right != None:
+                    q.put(node.right)
+                else:
+                    q.put("NONE")
+            else:
+                break
+        else:
+            result.append(node)
+    return result
+
+# print(bfs_tra(r1)); print(bfs_1leaf(r1))
+# print(bfs_tra(r2)); print(bfs_1leaf(r2))
+# print(bfs_tra(r3)); print(bfs_1leaf(r3))
+
+bfs = bfs_tra(r3)
+first_leaf = bfs_1leaf(r3)
+i = 1
+n = 1
+h = 1
+while True:
+    if len(bfs[0:i]) < len(first_leaf):
+        # print(i)
+        i = i + n*2
+        n = n*2
+        h += 1
+    else:
+        # print(i)
+        break
+print(h)
 
 
-
+# n = 1
+# i = 1
+# while n < 10 :
+#   print(i)
+#   i = i + n*2
+#   n = n*2
 
 
 
