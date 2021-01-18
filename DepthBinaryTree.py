@@ -21,16 +21,16 @@ c1l = TreeNode(4)
 c1r = None
 c2l = None
 c2r = TreeNode(5)
-c1 = TreeNode(val=3, left=c1l, right=c1r)
-c2 = TreeNode(val=2, left=c2l, right=c2r)
+c1 = TreeNode(val=2, left=c1l, right=c1r)
+c2 = TreeNode(val=3, left=c2l, right=c2r)
 r2 = TreeNode(val=1, left=c1, right=c2)
 
 c1l = TreeNode(4)
 c1r = TreeNode(5)
 c2l = None
 c2r = None
-c1 = TreeNode(val=3, left=c1l, right=c1r)
-c2 = TreeNode(val=2, left=c2l, right=c2r)
+c1 = TreeNode(val=2, left=c1l, right=c1r)
+c2 = TreeNode(val=3, left=c2l, right=c2r)
 r3 = TreeNode(val=1, left=c1, right=c2)
 
 
@@ -43,32 +43,53 @@ def isleaf(r):
         return True
 
 
-def dfs_left(root):
-    result = []
-    stack = []
-    depth = 1
-    stack.append(root)
-    while len(stack)>0:
-        node = stack.pop()
-        if node:
-            if isleaf(node):
-                return depth
-            else:
-                depth += 1
-        else:
-            return 0
+# def dfs_left(root):
+#     result = []
+#     stack = []
+#     stack.append(root)
+#     while len(stack)>0:
+#         node = stack.pop()
         
+
+#         # dfs process
+#         if type(node) is TreeNode:
+#             result.append(node.val)
+#             if not isleaf(node):
+#                 if node.right != None:
+#                     stack.append(node.right)
+#                 else:
+#                     stack.append("NONE")
+#                 if node.left != None:
+#                     stack.append(node.left)
+#                 else:
+#                     stack.append("NONE")
+#         else:
+#             result.append(node)
+
+#     return result
+
+# 廣度優先搜尋：queue
+def bfs_tra(root):
+    result = []
+    q = queue.Queue()
+    q.put(root)
+    while q.qsize()>0:
+        node = q.get()
         if type(node) is TreeNode:
             result.append(node.val)
-
-            if node.right != None:
-                stack.append(node.right)
-
             if node.left != None:
-                stack.append(node.left)
+                q.put(node.left)
+            else:
+                q.put("NONE")
+            if node.right != None:
+                q.put(node.right)
+            else:
+                q.put("NONE")
         else:
             result.append(node)
-    return depth
+    return result
+
+print(bfs_tra(r1))
 
 
 

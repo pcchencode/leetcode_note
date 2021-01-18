@@ -9,6 +9,30 @@ class TreeNode:
         self.left = left
         self.right = right
 
+# 廣度優先搜尋：queue
+def bfs_tra(root):
+    result = []
+    q = queue.Queue()
+    q.put(root)
+    while q.qsize()>0:
+        node = q.get()
+        if type(node) is TreeNode:
+            print(node.val)
+            result.append(node.val)
+            if node.left != None:
+                q.put(node.left)
+            else:
+                q.put("NONE")
+            if node.right != None:
+                q.put(node.right)
+            else:
+                q.put("NONE")
+        else:
+            print(node)
+            result.append(node)
+    return result
+
+
 def dfs_right(root):
     result = []
     stack = []
