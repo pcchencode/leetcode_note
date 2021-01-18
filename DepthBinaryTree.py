@@ -69,6 +69,7 @@ def isleaf(r):
 #     return result
 
 # 廣度優先搜尋：queue
+## bfs 第一個碰到的leaf就是最淺的位置
 def bfs_tra(root):
     result = []
     q = queue.Queue()
