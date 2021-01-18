@@ -78,19 +78,22 @@ def bfs_tra(root):
         node = q.get()
         if type(node) is TreeNode:
             result.append(node.val)
-            if node.left != None:
-                q.put(node.left)
-            else:
-                q.put("NONE")
-            if node.right != None:
-                q.put(node.right)
-            else:
-                q.put("NONE")
+            if not isleaf(node):
+                if node.left != None:
+                    q.put(node.left)
+                else:
+                    q.put("NONE")
+                if node.right != None:
+                    q.put(node.right)
+                else:
+                    q.put("NONE")
         else:
             result.append(node)
     return result
 
 print(bfs_tra(r1))
+print(bfs_tra(r2))
+print(bfs_tra(r3))
 
 
 
