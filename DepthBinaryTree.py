@@ -33,6 +33,16 @@ c1 = TreeNode(val=2, left=c1l, right=c1r)
 c2 = TreeNode(val=3, left=c2l, right=c2r)
 r3 = TreeNode(val=1, left=c1, right=c2)
 
+c1l = None
+c1r = None
+c2l = None
+c2r = TreeNode(val=4, left=None, right=5)
+c1 = None
+c2 = TreeNode(val=3, left=c2l, right=c2r)
+r4 = TreeNode(val=2, left=c1, right=c2)
+
+
+
 
 def isleaf(r):
     if r.left:
@@ -118,21 +128,27 @@ def bfs_1leaf(root):
 # print(bfs_tra(r2)); print(bfs_1leaf(r2))
 # print(bfs_tra(r3)); print(bfs_1leaf(r3))
 
-bfs = bfs_tra(r3)
-first_leaf = bfs_1leaf(r3)
-i = 1
-n = 1
-h = 1
-while True:
-    if len(bfs[0:i]) < len(first_leaf):
-        # print(i)
-        i = i + n*2
-        n = n*2
-        h += 1
-    else:
-        # print(i)
-        break
-print(h)
+# def depth(root):
+#     bfs = bfs_tra(root)
+#     first_leaf = bfs_1leaf(root)
+#     print(bfs)
+#     print(first_leaf)
+#     i = 1
+#     n = 1
+#     h = 1
+#     while True:
+#         if len(bfs[0:i]) < len(first_leaf):
+#             # print(i)
+#             i = i + n*2
+#             n = n*2
+#             h += 1
+#         else:
+#             # print(i)
+#             break
+#     print(h)
+#     return h
+
+# depth(r4)
 
 
 # n = 1
@@ -141,6 +157,27 @@ print(h)
 #   print(i)
 #   i = i + n*2
 #   n = n*2
+
+
+def solution(root):
+    if root is None:
+        return 0
+    if root.right is None and root.left is None:
+        return 1
+
+    if root.left is None:
+        return solution(root.right)+1
+
+    if root.right is None:
+        return solution(root.left)+1
+
+    return min(solution(root.left), solution(root.right))+1
+
+print(solution(r3))
+
+
+
+
 
 
 
