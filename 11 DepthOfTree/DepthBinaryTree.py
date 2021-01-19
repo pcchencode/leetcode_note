@@ -179,9 +179,9 @@ def solution(root):
     
     if root.right is None and root.left is None:
         return 1
-    elif root.left is None:
+    elif root.left is None and root.right != None:
         return solution(root.right)+1
-    elif root.right is None:
+    elif root.right is None and root.left != None:
         return solution(root.left)+1
     # 如果左右都有subtree，這時該往哪裡鑽？
     # Ans: 兩邊都鑽，但是 return 的值要取一個 min 後，才+1
