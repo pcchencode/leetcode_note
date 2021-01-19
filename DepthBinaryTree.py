@@ -184,7 +184,7 @@ def solution(root):
     elif root.right is None:
         return solution(root.left)+1
     # 如果左右都有subtree，這時該往哪裡鑽？
-    # Ans: 兩邊都鑽，但是 return 的值要取一個 min 
+    # Ans: 兩邊都鑽，但是 return 的值要取一個 min 後，才+1
     else:
         return min(solution(root.left), solution(root.right)) + 1
 
