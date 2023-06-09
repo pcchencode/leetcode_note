@@ -1,3 +1,5 @@
+import time
+
 def bs(sort_nums, target):
     m_idx = 0; M_idx = len(sort_nums)
     # print(m_idx, M_idx); os._exit(0)
@@ -53,8 +55,32 @@ def binary_search(data, key):
             high = mid - 1
     return -1
 
+def find_pivot(data, key):
+    l = 0
+    r = len(data)-1
+    while l <= r:
+        print(data[l:r+1])
+        m = int((l + r) / 2)
+        print(l, m, r)
+        if data[l] > data[m]:
+            r = m
+        elif data[l] < data[m]:
+            l = m
+        else:
+            m = m+1
+            # print(m)
+            break
+        # time.sleep(1)
+    return m
+
 
 # bs([0,1,2,3,4,5,6], target=4)
 # bs([1,3], target=2)
 
-print(binary_search([0,1,2,3,4,5,6], key=87))
+# print(find_pivot([0,1,2,3,4,5,6], key=87))
+# print(find_pivot([2,4,5,6,7,0,1], key=5))
+# print(find_pivot([2,4,5,6,7,0,1], key=5))
+# print(find_pivot([1,2,4,5,6,7,0], key=5))
+nums = [45,49,50,87,0,1,2,3,4,5,6,7,8,9]
+pivot = find_pivot(nums, key=5); print(pivot)
+print(nums[0:pivot], nums[pivot:])
