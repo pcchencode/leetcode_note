@@ -7,18 +7,9 @@ class TreeNode:
 
 class Solution:
     def isValid(self, node, min_i, max_i):
-        # if node:
-        #     print(node.val, min_i, max_i)
-        # else:
-        #     print(None, min_i, max_i)
         if not node:
             return True
-        # print(node.val, min_i, max_i)
-        # if node.val <= min_i or node.val >= max_i:
-        #     return False
-        if min_i and node.val <= min_i:
-            return False
-        if max_i and node.val >= max_i:
+        if node.val >= max_i or node.val <= min_i:
             return False
         
         # print(self.isValid(node.left, min_i=min_i, max_i=node.val))
@@ -44,5 +35,6 @@ s = Solution()
 r = TreeNode(0)
 r.right = TreeNode(-1)
 # print(s.isValid(TreeNode(-8), 0, None))
+# print(s.isValid(TreeNode(-8), float('-inf'), float('inf')))
 
 print(s.isValidBST(r))
