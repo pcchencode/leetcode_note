@@ -56,4 +56,4 @@ heapq.heappush(pq, 5)
 heapq.heappush(pq, 2)
 heapq.heappush(pq, 4)
 while pq:
-    print(heapq.heappop(pq)) #會依照優先度推出
+    print(heapq.heappop(pq)) #會依照優先度推出 
