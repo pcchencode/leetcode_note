@@ -5,7 +5,7 @@ import heapq
 lst = [3,1,6,5,2,4]
 print(lst)
 heapq.heapify(lst)
-print(lst)
+print("heapq -> heapify", lst)
 
 #自己實作 build min heap
 ##遍歷數組，慢慢塞入 heap，塞入的同時一直做 heapify
@@ -25,7 +25,7 @@ for ele in array:
             heap[idx], heap[parent_idx] = heap[parent_idx], heap[idx]
         idx = parent_idx #繼續對parent做一樣的事情
 
-print(heap)
+print('own heapify', heap)
 
 #heap sort(簡單版本)
 arr = [3,1,6,5,2,4]
