@@ -9,7 +9,21 @@ grid = [[1,2,3],[8,9,4],[7,6,5]]
 #     [7,6,5]
 # ]
 ROWS, COLS = len(grid), len(grid[0])
+        
+# DFS: recursion
+def dfs(r, c, grid, visit_set):
+    #終止條件
+    if r<0 or c<0 or r==ROWS or c==COLS or (r,c) in visit_set:
+        return
 
+    visit_set.add((r, c)) #因為Graph中可能會回訪，要避免無窮遞迴
+    print(grid[r][c]) #走訪
+    dfs(r-1, c, grid, visit_set)
+    dfs(r+1, c, grid, visit_set)
+    dfs(r, c-1, grid, visit_set)
+    dfs(r, c+1, grid, visit_set)
+dfs(0, 0, grid, set())
+print("=========")
 
 # DFS: stack
 def dfs_stack(r, c, grid, visit_set):
@@ -32,24 +46,8 @@ def dfs_stack(r, c, grid, visit_set):
             stack.append((row-1, col))
 dfs_stack(0, 0, grid, set())
 print("=======")
-        
-# DFS: recursion
-def dfs(r, c, grid, visit_set):
-    #終止條件
-    if r<0 or c<0 or r==ROWS or c==COLS or (r,c) in visit_set:
-        return
 
-    visit_set.add((r, c)) #因為Graph中可能會回訪，要避免無窮遞迴
-    print(grid[r][c]) #走訪
-    dfs(r-1, c, grid, visit_set)
-    dfs(r+1, c, grid, visit_set)
-    dfs(r, c-1, grid, visit_set)
-    dfs(r, c+1, grid, visit_set)
-dfs(0, 0, grid, set())
-os._exit(0)
-
-print("=========")
-
+# BFS
 def bfs(r,c, grid, visit_set):
     q = deque([(r, c)])
     while q:
