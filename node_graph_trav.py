@@ -30,6 +30,23 @@ def dfs(node, visit_set):
 dfs(n1, set())
 print("===========")
 
+def dfs_stack(node, visit_set):
+    stack = [node]
+    while stack:
+        nod = stack.pop()
+        if nod in visit_set:
+            continue
+        else:
+            visit_set.add(nod)
+        print(nod.val)
+        # for neib in nod.neighbors:
+        #     stack.append(neib)
+        for i in range(len(nod.neighbors)-1, -1, -1):
+            stack.append(nod.neighbors[i])
+dfs_stack(n1, set())
+print("===========")
+
+
 def bfs(node, visit_set):
     q = deque([node])
     while q:
