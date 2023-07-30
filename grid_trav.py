@@ -36,7 +36,7 @@ def dfs_stack(r, c, grid, visit_set):
         else:
             visit_set.add((row, col))
         print(grid[row][col]) #走訪
-        if col+1<ROWS:
+        if col+1<COLS:
             stack.append((row, col+1))
         if col-1>=0:
             stack.append((row, col-1))
@@ -64,7 +64,7 @@ def bfs(r,c, grid, visit_set):
             q.appendleft((row+1, col))
         if col-1>=0:
             q.appendleft((row, col-1))
-        if col+1<ROWS:
+        if col+1<COLS:
             q.appendleft((row, col+1))
 
 bfs(0, 0, grid, set())
