@@ -1,3 +1,4 @@
+import os
 import time
 
 def bs(sort_nums, target):
@@ -46,7 +47,7 @@ def binary_search(data, key):
     low = 0
     high = len(data)-1
     while low <= high:
-        mid = int((low + high) / 2)
+        mid = (low + high) // 2
         if key == data[mid]:
             return mid
         elif key > data[mid]:
@@ -54,6 +55,8 @@ def binary_search(data, key):
         else:
             high = mid - 1
     return -1
+print(binary_search([0,1,2,3,4,5,6], key=4))
+os._exit(0)
 
 def find_pivot(data, key):
     l = 0
