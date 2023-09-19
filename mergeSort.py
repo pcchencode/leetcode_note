@@ -13,6 +13,7 @@ def merge(left, right):
             result.append(right[j])
             j+=1
     # print(i,j)
+    # 把剩餘的並上去
     if i==len(left):
         result += right[j:]
     if j==len(right):
